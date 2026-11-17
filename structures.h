@@ -1,14 +1,25 @@
 #include <stdint.h>
 
+typedef enum {
+    CMD_COLIS,
+    CMD_ETAT,
+    CMD_QUIT,
+    CMD_INVALIDE
+}typeCommande;
 
 typedef struct colis {
-    uint8_t id;
+    int id;
     char dest;
-    uint16_t poids;
+    float poids;
 }colis;
 
 typedef struct zone {
     char lettre;
     uint16_t total_colis;
-    uint16_t total_poids;
+    double total_poids;
 }zone;
+
+typedef struct commande {
+    typeCommande type;
+    colis c;
+}commande;
